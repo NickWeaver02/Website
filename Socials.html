@@ -92,6 +92,27 @@
       background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
       z-index: -1;
     }
+    .home-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2; /* Ensure the button is above the video background */
+    }
+
+    .home-button a {
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: #eb8df2;
+      color: #FFF;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-button a:hover {
+      background-color: #E14B50;
+    }
 
     /* Media Query for Mobile Devices */
     @media only screen and (max-width: 767px) {
@@ -112,11 +133,11 @@
   </div>
 
   <div class="container">
-    <header>
-      <h1>Social Media</h1>
-      <div class="home-button">
+    <div class="home-button">
         <a href="https://havocfield.com/">Home</a>
       </div>
+    <header>
+      <h1>Social Media</h1>
     </header>
 
     <div class="social-media">

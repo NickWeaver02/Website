@@ -25,9 +25,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 50%;
       overflow: hidden;
-      z-index: -1; /* Place the video behind other content */
+      z-index: -1;
+      transition: top 0.3s ease; /* Add transition for smooth animation */
     }
 
     .video-overlay {
@@ -43,22 +44,25 @@
     /* Add styles for the video element */
     video {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      z-index: 1;
+      height: 300%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0; 
+      padding: 20px 0;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 36px;
       color: #FFF;
       margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     nav ul {
@@ -86,6 +90,8 @@
     .banner {
       text-align: center;
       margin-top: 100px;
+      position: relative;
+      z-index: 1;
     }
 
     h2 {
@@ -127,23 +133,22 @@
       padding: 30px;
       border-radius: 5px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
     }
 
     .feature img {
       max-width: 100%;
-      border-radius: 5px;
+      border-radius: 10px;
       margin-bottom: 20px;
+      transition: transform 0.3s ease;
     }
 
-    .feature h3 {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .feature p {
-      font-size: 16px;
-      color: #777;
+    .feature:hover img {
+      transform: scale(1.1);
     }
 
     footer {
@@ -163,6 +168,7 @@
         <img src="BRAH.0109.jpeg" alt="Fallback Image">
       </video>
     </div>
+
     <header>
       <h1>HavocField</h1>
       <nav>
@@ -202,5 +208,19 @@
       <p>&copy; 2023 HavocField. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var header = document.querySelector('header');
+      var videoContainer = document.querySelector('.video-container');
+      var scrollPos = window.scrollY;
+
+      if (scrollPos >= header.offsetHeight) {
+        videoContainer.style.top = '-100%';
+      } else {
+        videoContainer.style.top = '0';
+      }
+    });
+  </script>
 </body>
 </html>

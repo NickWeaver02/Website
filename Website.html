@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HavocField - Coming Soon</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional Custom Styles */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #F0F0F0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1; /* Place the video behind other content */
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(255, 0, 0, 0.8) 100%);
+      z-index: -1;
+    }
+
+    /* Add styles for the video element */
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0; 
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #FFF;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #FFF;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #FF5A5F;
+    }
+
+    .banner {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h2 {
+      font-size: 48px;
+      color: #FF5A5F;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #777;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #FF5A5F;
+      color: #FFF;
+      font-size: 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #E14B50;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 100px;
+    }
+
+    .feature {
+      flex-basis: 30%;
+      text-align: center;
+      background-color: #FFF;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      font-size: 16px;
+      color: #777;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #333;
+      color: #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="video-container">
+      <div class="video-overlay"></div>
+      <video src="WebsiteVoria.mp4" autoplay loop muted>
+        <!-- Add fallback content if video cannot be played -->
+        <img src="fallback-image.jpg" alt="Fallback Image">
+      </video>
+    </div>
+    <header>
+      <h1>HavocField</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Games</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="banner">
+      <h2>Coming Soon!</h2>
+      <p>Get ready for an epic gaming experience.</p>
+      <a href="https://discord.gg/g8BdEdnq58" class="cta-button">Join Our Discord!</a>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <img src="PlayWithFriend.jpeg" alt="Feature 1">
+        <h3>Compete With Friends</h3>
+        <p>Challenge your friends and climb the leaderboards in thrilling multiplayer games.</p>
+      </div>
+      <div class="feature">
+        <img src="BRAH.0050.jpeg" alt="Feature 2">
+        <h3>Enjoy Sci-fi Combat</h3>
+        <p>Dive into a sci-fi multiplayer experience like no other!</p>
+      </div>
+      <div class="feature">
+        <img src="11.jpeg" alt="Feature 3">
+        <h3>Attractive Stylized Visuals</h3>
+        <p>Our dev team is hard at work making this experience as best looking as possible.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 HavocField. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

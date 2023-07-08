@@ -42,7 +42,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, #000000, #6e6bfa);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(255, 0, 0, 0.8) 100%);
       z-index: -1;
     }
 
@@ -135,14 +135,17 @@
     }
 
     .feature {
-      flex-basis: calc(33.33% - 40px);
+      flex-basis: 30%;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.7);
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
-      margin-bottom: 40px;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
     }
 
     .feature img {
@@ -155,7 +158,6 @@
     .feature:hover img {
       transform: scale(1.1);
     }
-
     .feature .video-wrapper {
       position: relative;
       width: 100%;
@@ -184,53 +186,17 @@
     h3 {
       color: #f2b661; /* Change the color of h3 text */
     }
-
-    @media only screen and (max-width: 600px) {
-      h1 {
-        font-size: 32px;
-      }
-
-      nav ul li a {
-        font-size: 18px;
-      }
-
-      .banner {
-        margin-top: 50px;
-        padding: 20px;
-      }
-
-      h2 {
-        font-size: 36px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .cta-button {
-        padding: 10px 20px;
-        font-size: 18px;
-      }
-
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .feature {
-        flex-basis: 100%;
-        max-width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="video-container">
-      <video src="WebsiteVor2.mp4" autoplay loop muted></video>
+      <video src="WebsiteVor2.mp4" autoplay loop muted>
+      </video>
       <div class="video-overlay">
-        <video src="WebsiteVor3.mp4" autoplay loop muted></video>
-      </div>
+         <video src="WebsiteVor3.mp4" autoplay loop muted>
+         </video>
+       </div>
     </div>
 
     <header>
@@ -258,7 +224,7 @@
       </div>
       <div class="feature">
         <div class="video-wrapper" onclick="toggleFullScreen(this)">
-          <video src="Agp.mp4" autoplay loop muted playsinline onclick="toggleFullScreen(this)"></video>
+           <video src="Agp.mp4" autoplay loop muted playsinline onclick="toggleFullScreen(this)"></video>
         </div>
         <h3>Enjoy Sci-fi Combat</h3>
         <p>Dive into a sci-fi multiplayer experience like no other!</p>

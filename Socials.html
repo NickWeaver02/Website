@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Social Media Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #FFF;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-media-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      background-color: #FFF;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .social-media-item:hover {
+      transform: scale(1.1);
+    }
+
+    .social-media-item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .social-media-item h3 {
+      color: #333;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+      z-index: -1;
+    }
+
+    /* Media Query for Mobile Devices */
+    @media only screen and (max-width: 767px) {
+      .social-media {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-media-item {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background">
+    <video src="websitevor3.mp4" autoplay loop muted></video>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Social Media</h1>
+    </header>
+
+    <div class="social-media">
+      <div class="social-media-item">
+        <img src="instagram-icon.png" alt="Instagram">
+        <h3>Instagram</h3>
+      </div>
+      <div class="social-media-item">
+        <img src="twitter.jpeg" alt="Twitter">
+        <h3>Twitter</h3>
+      </div>
+      <div class="social-media-item">
+        <img src="youtube-icon.png" alt="YouTube">
+        <h3>YouTube</h3>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

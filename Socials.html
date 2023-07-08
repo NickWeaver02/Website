@@ -16,6 +16,7 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      position: relative; /* Add relative positioning */
     }
 
     h1 {
@@ -92,16 +93,17 @@
       background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
       z-index: -1;
     }
+
     .home-button {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 3px;
+      right: 10px;
       z-index: 2; /* Ensure the button is above the video background */
     }
 
     .home-button a {
       display: inline-block;
-      padding: 15px 25px;
+      padding: 5px 10px;
       background-color: #eb8df2;
       color: #FFF;
       font-size: 18px;
@@ -133,11 +135,11 @@
   </div>
 
   <div class="container">
-    <div class="home-button">
-        <a href="https://havocfield.com/">Home</a>
-      </div>
     <header>
       <h1>Social Media</h1>
+      <div class="home-button">
+        <a href="https://havocfield.com/">Home</a>
+      </div>
     </header>
 
     <div class="social-media">

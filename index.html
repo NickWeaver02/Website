@@ -7,48 +7,51 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Additional Custom Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+    
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Outfit', sans-serif;
       background-color: #F0F0F0;
       margin: 0;
       padding: 0;
-      background-image: linear-gradient(to bottom, #6e6bfa, #000000);
+      background: linear-gradient(0deg, #000 0%, #640c20 100%);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
       transition: background-image 0.5s ease;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      position: relative;
-    }
-
     .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      overflow: hidden;
-      z-index: -1;
-      transition: top 0.3s ease; /* Add transition for smooth animation */
-    }
-
-    .video-overlay {
       position: absolute;
       top: 0;
-      left: 0;
+      bottom: 0;
       width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, #6e6bfa, #000000);
-      z-index: -1;
+      height: 60%; 
+      overflow: hidden;
     }
+    .video-container video {
+      /* Make video to at least 100% wide and tall */
+      min-width: 100%; 
+      min-height: 100%; 
+
+      /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+      
+      height: auto;
+
+      /* Center the video */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    
 
     /* Add styles for the video element */
     video {
+      
       width: 100%;
       height: 300%;
       object-fit: cover;
@@ -56,8 +59,9 @@
     }
 
     header {
+      
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 20px 0;
       position: relative;
@@ -65,13 +69,14 @@
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 35px;
       color: #FFF;
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     nav ul {
+      
       list-style: none;
       margin: 0;
       padding: 0;
@@ -83,9 +88,10 @@
     }
 
     nav ul li a {
+      
       text-decoration: none;
       color: #FFF;
-      font-size: 24px;
+      font-size: 20px;
       transition: color 0.3s ease;
     }
 
@@ -94,34 +100,42 @@
     }
 
     .banner {
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin-top: 240px;
+      margin-top: 150px;
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.0);
+      border-radius: 30px;
       padding: 30px;
+    }
+    
+    .divided {
+      margin-top: 325px;
     }
 
     h2 {
-      font-size: 56px;
-      color: #f2b661;
+      font-size: 60px;
+      color: #FFF;
       margin-bottom: 20px;
     }
 
     p {
       font-size: 20px;
-      color: #f2b661;
+      text-shadow: 2px 2px #000000;
+      color: #FFF;
+      font-family: 'Comfortaa', cursive;
     }
 
     .cta-button {
       display: inline-block;
       padding: 15px 30px;
-      background-color: #eb8df2;
+      background-color: rgba(0, 0, 0, 0.7);
       color: #FFF;
       font-size: 24px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 30px;
       transition: background-color 0.3s ease;
     }
 
@@ -141,7 +155,7 @@
       text-align: center;
       background-color: rgba(0, 0, 0, 0.7);
       padding: 10px;
-      border-radius: 10px;
+      border-radius: 30px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
@@ -152,7 +166,7 @@
 
     .feature img {
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 30px;
       margin-bottom: 20px;
       transition: transform 0.3s ease;
     }
@@ -166,7 +180,7 @@
       width: 100%;
       height: 0;
       padding-bottom: 56%; /* 16:9 aspect ratio */
-      border-radius: 10px;
+      border-radius: 30px;
       overflow: hidden;
     }
 
@@ -181,13 +195,20 @@
 
     footer {
       text-align: center;
-      padding: 20px 0;
+      padding: 1px;
       background-color: #333;
       color: #FFF;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      
+      clear: both;
+      background: rgba(0, 0, 0, 0.25) 
     }
 
     h3 {
-      color: #f2b661; /* Change the color of h3 text */
+      color: #FFF; /* Change the color of h3 text */
+      font-size: 35px;
     }
     /* Media Query for Vertical Layout on Phones */
     @media (max-width: 768px) {
@@ -206,7 +227,8 @@
       }
     }
     .cta-button.beta-signup {
-      background-color: #eb8df2;
+      background-color: #333;
+      background: rgba(0, 0, 0, 0.75) 
     }
 
     .cta-button.beta-signup:hover {
@@ -215,58 +237,58 @@
   </style>
 </head>
 <body>
-  <div class="container">
     <div class="video-container">
       <video src="WebsiteVor2.mp4" autoplay loop muted>
-      </video>
-      <div class="video-overlay">
-         <video src="WebsiteVor3.mp4" autoplay loop muted>
-         </video>
-       </div>
     </div>
 
+      
+    
+
     <header>
-      <h1>HavocField</h1>
       <nav>
         <ul>
           <li><a href="#">About</a></li>
           <li><a href="Socials.html">Socials</a></li>
+          <li><a href="#">Blog</a></li>
         </ul>
       </nav>
     </header>
+    
 
     <section class="banner">
-      <h2>Coming Sometime in 2024!</h2>
-      <p>Get ready for an awesome gaming experience.</p>
-      <a href="https://discord.gg/g8BdEdnq58" class="cta-button">Join Our Discord!</a>
+      <h2>HavocField</h2>
+      <p>Coming soon. Get hyped for an awesome gaming experience.</p>
+      <a href="https://discord.gg/g8BdEdnq58" class="cta-button">Discord</a>
       <a href="PreAlphaSignup.html" class="cta-button beta-signup">Pre-Alpha Signup</a>
     </section>
+
+    <section class ="divided"></section>
 
     <section class="features">
       <div class="feature">
         <img src="PlayWithFriend.jpeg" alt="Feature 1">
-        <h3>Compete With Friends</h3>
+        <h3>Intricate Competitive Systems</h3>
         <p>Challenge your friends and climb the leaderboards in thrilling multiplayer games.</p>
       </div>
       <div class="feature">
         <div class="video-wrapper" onclick="toggleFullScreen(this)">
            <video src="Agp.mp4" autoplay loop muted playsinline onclick="toggleFullScreen(this)"></video>
         </div>
-        <h3>Enjoy Sci-fi Combat</h3>
-        <p>Dive into a sci-fi multiplayer experience like no other!</p>
+        <h3>Sci-fi Inspired Combat Mechanics</h3>
+        <p>Dive into an immersive experience like no other.</p>
       </div>
       <div class="feature">
         <img src="11.jpeg" alt="Feature 3">
         <h3>Attractive Stylized Visuals</h3>
-        <p>Our dev team is hard at work making this experience as visually stunning as possible.</p>
+        <p>Our dev team is hard at work creating an experience that's as visually stunning as possible.</p>
       </div>
     </section>
 
-    <footer>
-      <p>&copy; 2023 HavocField. All rights reserved.</p>
-    </footer>
+    
   </div>
+    
 
+    
   <script>
     function toggleFullScreen(video) {
       if (!document.fullscreenElement) {
@@ -292,5 +314,9 @@
       }
     }
   </script>
+
+    <footer>
+      <p>&copy; 2023 HavocField. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -3,14 +3,22 @@
 <head>
   <title>HavocField - Pre-Alpha Signup</title>
   <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
+      font-family: 'Comfortaa', sans-serif;
       padding: 0;
       overflow: hidden;
+      min-height:100vh;
+      display: flex;
+      flex-direction: column;
     }
     
     .video-background {
+      
       position: fixed;
       top: 0;
       left: 0;
@@ -27,26 +35,33 @@
     }
     
     .content {
+      padding-top: 0vh;
+      background-color: rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+      min-width: 100%;
+      
+      
     }
     
     h1 {
       text-align: center;
       color: #fff;
+      font-family: 'Outfit', sans-serif;
       font-size: 28px;
       margin-bottom: 30px;
     }
     
     form {
-      max-width: 400px;
+      max-width: 800px;
       width: 80%;
+      
+      
       margin: 0 auto;
-      background-color: #f2f2f2;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -60,7 +75,7 @@
       display: block;
       font-weight: bold;
       margin-bottom: 10px;
-      color: #555;
+      color: #ffffff;
     }
     
     input[type="text"],
@@ -73,6 +88,8 @@
       font-size: 16px;
       box-sizing: border-box;
     }
+
+    
     
     textarea {
       resize: vertical;
@@ -80,10 +97,11 @@
     }
     
     input[type="submit"] {
+      font-family: 'Outfit', sans-serif;
       display: block;
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #ff0000;
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -93,7 +111,7 @@
     }
     
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: rgb(247, 0, 255);
     }
     
     .message {
@@ -110,6 +128,53 @@
     .error {
       color: #f44336;
     }
+
+
+    .home-button {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      z-index: 2; /* Ensure the button is above the video background */
+    }
+
+    .home-button a {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #FFF;
+      font-size: 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:link { text-decoration: none; }
+
+    a:visited { text-decoration: none; }
+
+    a:hover { text-decoration: none; }
+
+    a:active { text-decoration: none; }
+
+    .home-button a:hover {
+      background-color: #E14B50;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1px;
+      background-color: #333;
+      color: #FFF;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin-top: auto;
+      clear: both;
+      background: rgba(0, 0, 0, 0.8) 
+    }
+
+    
   </style>
 </head>
 <body>
@@ -118,32 +183,53 @@
       <source src="AlphaSignup.mp4" type="video/mp4">
     </video>
   </div>
+
+  <header>
+    <div class="home-button">
+      <a href="https://havocfield.com/">Go back?</a>
+    </div>
+  </header>
   
   <div class="content">
     <h1>Pre-Alpha Signup</h1>
     
     <form action="https://formspree.io/f/maygyjyo" method="POST">
       <div class="form-group">
-        <label for="name">Your Name:</label>
+        <label for="name">Your name:</label>
         <input type="text" id="name" name="name" required>
       </div>
       
       <div class="form-group">
-        <label for="email">Your Email:</label>
+        <label for="email">Your E-mail:</label>
         <input type="email" id="email" name="_replyto" required>
       </div>
-      
+
       <div class="form-group">
-        <label for="message">Tell us about yourself (games you like, etc).</label>
+        <label for="message">Would you like to be emailed with updates and promotions about the game? (Y/N):</label>
+        <input type="email" id="email" name="_replyto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell us about yourself (games you like, etc):</label>
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
+
+      
       
       <input type="submit" value="Send">
       
       <p class="message" id="response-message"></p>
     </form>
+  
+  <footer>
+    <p>&copy; 2023 HavocField. All rights reserved.</p>
+  </footer>
   </div>
+  
 
+</body>
+
+  
   <script>
     var form = document.querySelector("form");
     var responseMessage = document.getElementById("response-message");
@@ -173,5 +259,9 @@
       });
     });
   </script>
-</body>
+
+    
+
+
+
 </html>

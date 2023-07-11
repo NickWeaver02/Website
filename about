@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    
+
+    h1 {
+      text-align: center;
+      
+    }
+
+
+    
+    .home-button {
+      position: absolute;
+      top: 3px;
+      right: 10px;
+      z-index: 2; /* Ensure the button is above the video background */
+    }
+
+    .home-button a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #FFF;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:link { text-decoration: none; }
+
+    a:visited { text-decoration: none; }
+
+    a:hover { text-decoration: none; }
+
+    a:active { text-decoration: none; }
+
+    .home-button a:hover {
+      background-color: #E14B50;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1px;
+      background-color: #333;
+      color: #FFF;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      
+      clear: both;
+      background: rgba(0, 0, 0, 0.8) 
+    }
+
+    
+
+
+
+  </style>
+</head>
+<body>
+  
+</body>
+
+<footer>
+  <p>&copy; 2023 HavocField. All rights reserved.</p>
+</footer>
+</html>
+

@@ -161,6 +161,11 @@
       background-color: #E14B50;
     }
 
+    .iframe{
+        width: 640px;
+        height: 800px;
+    }
+
     footer {
       text-align: center;
       padding: 1px;
@@ -172,6 +177,15 @@
       margin-top: auto;
       clear: both;
       background: rgba(0, 0, 0, 0.8) 
+    }
+
+    @media (max-width: 768px) {
+      .iframe{
+        max-width: 400px;
+        max-height: 500px;
+      }
+
+
     }
 
     
@@ -193,34 +207,7 @@
   <div class="content">
     <h1>Pre-Alpha Signup</h1>
     
-    <form action="https://formspree.io/f/maygyjyo" method="POST">
-      <div class="form-group">
-        <label for="name">Your name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Your E-mail:</label>
-        <input type="email" id="email" name="_replyto" required>
-      </div>
-
-      
-
-      <div class="form-group">
-        <label for="message">Tell us about yourself (games you like, etc):</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Would you like to be emailed with updates and promotions about the game? (Y/N):</label>
-        <input id="message" name="_replyto" required>
-      </div>
-      
-      
-      <input type="submit" value="Send">
-      
-      <p class="message" id="response-message"></p>
-    </form>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduj97evMjJoMMf_-b0xyvP_-NXIa0TKItsnuUmx177um7yQg/viewform?embedded=true" width = 640px, height = 800px, frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   
   <footer>
     <p>&copy; 2023 HavocField. All rights reserved.</p>
@@ -231,35 +218,7 @@
 </body>
 
   
-  <script>
-    var form = document.querySelector("form");
-    var responseMessage = document.getElementById("response-message");
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      var formData = new FormData(form);
-      
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(function(response) {
-        if (response.ok) {
-          form.reset();
-          responseMessage.textContent = "Thank you for your message! We'll be in touch soon.";
-          responseMessage.classList.add("success");
-          responseMessage.classList.remove("error");
-        } else {
-          responseMessage.textContent = "Oops! Something went wrong. Please try again.";
-          responseMessage.classList.add("error");
-          responseMessage.classList.remove("success");
-        }
-      });
-    });
-  </script>
+  
 
     
 

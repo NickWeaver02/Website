@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+body {
+    font-family: 'Outfit', sans-serif;
+      background-color: #F0F0F0;
+      margin: 0;
+      padding: 0;
+      background: rgb(108,34,195);
+      background: -moz-linear-gradient(16deg, rgba(108,34,195,1) 0%, rgba(45,135,253,1) 100%);
+      background: -webkit-linear-gradient(16deg, rgba(108,34,195,1) 0%, rgba(45,135,253,1) 100%);
+      background: linear-gradient(16deg, rgba(108,34,195,1) 0%, rgba(45,135,253,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c22c3",endColorstr="#2d87fd",GradientType=1); 
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      transition: background-image 0.5s ease;
+      overflow-x: hidden;
+}
+
+
+.container{
+    
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-right: 10%;
+}
+
+.container h1{
+    color:whitesmoke;
+    font-family: 'Outfit', sans-serif;
+    font-size: 90px;
+    filter: drop-shadow(20px 20px 5px rgb(0, 0, 0));
+}
+
+.container h2{
+    padding-left: 5%;
+    color:whitesmoke;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 25px;
+}
+
+.container h3{
+    padding-top: 5%;
+    padding-left: 5%;
+    color:whitesmoke;
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+}
+
+.container h4{
+    padding-right: 0%;
+    color:whitesmoke;
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    text-align: right;
+}
+
+.nicktext img{
+    float:right;
+    border-radius: 60px;
+    width:400px;
+    position: absolute;
+    filter: drop-shadow(20px 40px 10px rgb(0, 0, 0));
+    
+    
+}
+.vintext img{
+    float:left;
+    border-radius: 60px;
+    width:400px;
+    position: absolute;
+    
+}
+
+
+
+
+.home-button {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 2; /* Ensure the button is above the video background */
+  }
+
+  .home-button a {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFF;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+
+  a:link { text-decoration: none; }
+
+  a:visited { text-decoration: none; }
+
+  a:hover { text-decoration: none; }
+
+  a:active { text-decoration: none; }
+
+  .home-button a:hover {
+    background-color: #E14B50;
+  }
+
+  .iframe{
+      width: 700px;
+      height: 800px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1px;
+    background-color: #333;
+    color: #FFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+    clear: both;
+    background: rgba(0, 0, 0, 0.8) 
+  }
+
+  header img {
+    position: absolute;
+    left: 0;
+    padding: 2%; /* Adjust the margin to your preference */
+    }

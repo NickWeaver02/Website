@@ -1,416 +1,468 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>HavocField</title>
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A third-person based movement shooter. Prepare to dive into an immersive experience like no other."> 
-  <meta property="og:image" content="Banner.jpeg">
-  <meta property="og:title" content="HavocField">
-  <meta property="og:description" content="A third-person based movement shooter. Prepare to dive into an immersive experience like no other.">
-  <meta property="og:url" content="https://havocfield.com/">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Additional Custom Styles */
-    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
-
-    @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+    <meta charset="UTF-8">
+    <title>HavocField</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A third-person based movement shooter. Prepare to dive into an immersive experience like no other.">
+    <meta property="og:image" content="Banner.jpeg">
+    <meta property="og:title" content="HavocField">
+    <meta property="og:description" content="A third-person based movement shooter. Prepare to dive into an immersive experience like no other.">
+    <meta property="og:url" content="https://havocfield.com/">
+    <meta property="og:type" content="website">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
     
-    body {
-      font-family: 'Outfit', sans-serif;
-      background-color: #F0F0F0;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(0deg, #000 0%, #302c64 100%);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      transition: background-image 0.5s ease;
-      overflow-x: hidden;
-    }
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 0px;
-      position: relative;
-    }
-    .video-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 55%;
-      overflow: hidden;
-      z-index: -1;
-      transition: top 0.3s ease; /* Add transition for smooth animation */
-    }
-
-
+        header {
+            background-color: #000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
     
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, #6e6bfa, #000000);
-      z-index: -1;
-    }
-
-
-    /* Add styles for the video element */
-    video {
-      
-      width: 100%;
-      height: 170%;
-      object-fit: cover;
-      top: 50%;
-      left: 50%;
-      transform: translate(0%,0%);
-      z-index: -1;
-    }
-
-    header {
-      
-      display: flex;
-margin-left: 23px;
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0;
-      position: relative;
-      z-index: 1;
-    }
-
+        nav {
+            position: relative;
+            padding: 0;
+            background-color: #000;
+        }
     
-
-
-
-    h1 {
-      font-size: 35px;
-      color: #FFF;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    nav ul {
-      
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      display: inline-block;
-      margin-right: 20px;
-    }
-
-    nav ul li a {
-      
-      text-decoration: none;
-      color: #FFF;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #FF5A5F;
-    }
-
-    header img {
-      position: absolute;
-  left: 0;
-  margin-left: 10px; /* Adjust the margin to your preference */
-}
-
-    .banner {
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin-top: 450px;
-      position: relative;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.0);
-      border-radius: 30px;
-      padding: 30px;
-    }
-
-    .banner img{
-      filter: drop-shadow(20px 20px 20px rgb(66, 148, 255));
-      width: 500px;
-      object-fit: contain;
-    }
-
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
     
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
     
-    .divided {
-      margin-top: 325px;
-    }
-
-    h2 {
-      text-shadow: 2px 2px #000000;
-      font-size: 60px;
-      color: #FFF;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 20px;
-      text-shadow: 2px 2px #000000;
-      color: #FFF;
-      font-family: 'Comfortaa', cursive;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #FFF;
-      font-size: 24px;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #E14B50;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap; /* Add flex-wrap property to wrap the features */
-      justify-content: space-between;
-      margin-top: 100px;
-    }
-
-    .feature {
-      flex-basis: 30%;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 30px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 10);
-      transition: transform 0.3s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature img {
-      max-width: 100%;
-      border-radius: 30px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .feature:hover img {
-      transform: scale(1.1);
-    }
-
-    .feature .video-wrapper {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 56%; /* 16:9 aspect ratio */
-      border-radius: 30px;
-      overflow: hidden;
-    }
-
-    .feature .video-wrapper video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1px;
-      background-color: #333;
-      color: #FFF;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      
-      clear: both;
-      background: rgba(0, 0, 0, 0.25) 
-    }
-
-    h3 {
-      color: #FFF; /* Change the color of h3 text */
-      font-size: 35px;
-    }
-    /* Media Query for Vertical Layout on Phones */
-    @media (max-width: 768px) {
-    .video-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 40%;
-      overflow: hidden;
-      z-index: -1;
-      transition: top 0.3s ease; /* Add transition for smooth animation */
-    }
-    video {
-      
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      top: 50%;
-      left: 50%;
-      transform: translate(0%,0%);
-      z-index: -1;
-    }
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .feature {
-        flex-basis: 100%;
-        margin-bottom: 30px;
-      }
-
-      .feature img {
-        margin-bottom: 10px; /* Adjust the margin for smaller screens */
-      }
-      
-      .cta-button{
-        margin-bottom: 10px;
-      }
-      
-      .banner img{
-      
-      width: 350px;
-      object-fit: contain;
-      }
-
-
-      
-
-      
-    }
-    .cta-button.beta-signup {
-      background-color: #333;
-      background: rgba(0, 0, 0, 0.75) 
-    }
-
-    .cta-button.beta-signup:hover {
-      background-color: #E14B50;
-    }
-
-    .whitelogo{
-      float:left;
-
-      width: 50px;
-      height: 50px;
-    }
-
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
     
+        nav ul li:hover .dropdown {
+            display: block;
+        }
     
-
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #000;
+            min-width: 200px;
+            z-index: 1;
+        }
     
-
-  </style>
-
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        .dropdown a:hover {
+            background-color: #444;
+        }
+    
+        .wishlist {
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+        }
+    
+        .wishlist-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #000;
+            min-width: 150px;
+            z-index: 1;
+        }
+    
+        .wishlist-dropdown a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        .wishlist-dropdown a:hover {
+            background-color: #444;
+        }
+    
+        .wishlist:hover .wishlist-dropdown {
+            display: block;
+        }
+    
+        .centered-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            max-width: 45%;
+            height: auto;
+            pointer-events: none;
+        }
+    
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+    
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+    
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+    
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+    
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 50px;
+            margin: 0;
+        }
+    
+        .content {
+            position: relative;
+            padding: 0px;
+            z-index: 2;
+        }
+    
+        .notice {
+            margin: -200px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 0px;
+            box-sizing: border-box;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+    
+        .notice h2 {
+            font-size: 24px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+    
+        .notice-list {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+        }
+    
+        .notice-item {
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 30%;
+            position: relative;
+        }
+    
+        .notice-item:hover {
+            border-color: #fff;
+        }
+    
+        .notice-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    
+        .notice-item:hover img {
+            filter: brightness(70%);
+        }
+    
+        .notice-item .inner-container {
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            padding: 10px;
+        }
+    
+        .notice-item:hover .inner-container {
+            border-color: #fff;
+        }
+    
+        .notice-item .text-overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    
+        .notice-item .text-overlay a {
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        footer {
+            background-color: #000;
+            padding: 10px 20px;
+            text-align: center;
+        }
+    
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    
+        .reveal-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            margin-top: 300px;
+        }
+    
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: clip-path 0.3s ease;
+        }
+    
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+        .text-reveal {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: none;
+            text-align: center;
+        }
+    
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+    
+            nav ul li {
+                margin: 10px 0;
+            }
+    
+            .hero h1 {
+                font-size: 30px;
+            }
+    
+            .notice-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .notice-item {
+                width: 100%;
+            }
+    
+            .reveal-container {
+                height: 300px;
+                margin-top: 150px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+    
+            .hero h1 {
+                font-size: 24px;
+            }
+    
+            .notice h2 {
+                font-size: 20px;
+            }
+    
+            .reveal-container {
+                height: 200px;
+                margin-top: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="video-container">
-      <video src="WebsiteVor2.mp4" autoplay loop muted>
-      </video>
-      <div class="video-overlay">
-         <video src="WebsiteVor3.mp4" autoplay loop muted>
-         </video>
-       </div>
+    <header>
+        <div class="logo">
+            <img src="hfwordsproto2-01.png" alt="HavocField" style="height: 40px;">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">News</a>
+                    <div class="dropdown">
+                        <a href="#">Latest News</a>
+                        <a href="#">Updates</a>
+                        <a href="#">Events</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Game Info</a>
+                    <div class="dropdown">
+                        <a href="#">Overview</a>
+                        <a href="#">Features</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Community</a>
+                    <div class="dropdown">
+                        <a href="#">Discord</a>
+                        <a href="#">Guides</a>
+                        <a href="#">Support</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="wishlist">
+            <img src="steam.png" alt="Wishlist" class="wishlist">
+            <div class="wishlist-dropdown">
+                <a href="#">Add to Wishlist</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-video-container">
+        <!-- <video class="hero-video" autoplay muted loop>
+            <source src="gameplay.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video> -->
+        <div class="gradient-overlay"></div>
+        <div class="hero-text">
+            <h1></h1>
+            <h1></h1>
+        </div>
+        <img src="hflogo-01.png" alt="Centered Image" class="centered-image">
     </div>
 
-    
 
-
-    <header>
-      <a href="https://discord.gg/g8BdEdnq58">
-        <img src="HFlogo-01.png" width="50" height="50">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="aboutus.html">About</a></li>
-          <li><a href="social.html">Socials</a></li>
-          <li><a href="WIP.html">Blog</a></li>
-        </ul>
-      </nav>
-    </header>
-    
-    
-
-    <section class="banner">
-      
-      <img src="HFwordsproto2-01.png" class="hfwords">
-      <p>Prepare for an experience like no other.</p>
-      <a href="https://discord.gg/g8BdEdnq58" class="cta-button">Discord</a>
-      <a href="signup.html" class="cta-button beta-signup">Pre-Alpha Sign-up</a>
-    </section>
-
-    <section class ="divided"></section>
-
-    <section class="features">
-      <div class="feature">
-        <img src="PlayWithFriend.jpeg" alt="Feature 1">
-        <h3>Intricate Competitive Systems</h3>
-        <p>Challenge your friends and climb the leaderboards in thrilling multiplayer games.</p>
-      </div>
-      <div class="feature">
-        <div class="video-wrapper" onclick="toggleFullScreen(this)">
-           <video src="Gameplay.mp4" autoplay loop muted playsinline onclick="toggleFullScreen(this)"></video>
+    <div class="content">
+        <div class="notice">
+            <h2></h2>
+            <div class="notice-list">
+                <div class="notice-item">
+                    <img src="RandomMap.PNG" alt="Notice 1">
+                    <div class="text-overlay">
+                        <a href="#">Game Update Details</a>
+                    </div>
+                </div>
+                <div class="notice-item">
+                    <img src="testy.jpg" alt="Notice 2">
+                    <div class="text-overlay">
+                        <a href="#">Upcoming Events</a>
+                    </div>
+                </div>
+                <div class="notice-item">
+                    <img src="whyme.png" alt="Notice 3">
+                    <div class="text-overlay">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSduj97evMjJoMMf_-b0xyvP_-NXIa0TKItsnuUmx177um7yQg/viewform?usp=sf_link">Pre-Alpha Signups are here!</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3>Sci-fi Inspired Combat Mechanics</h3>
-        <p>Dive into an immersive experience like no other.</p>
-      </div>
-      <div class="feature">
-        <img src="11.jpeg" alt="Feature 3">
-        <h3>Attractive Stylized Visuals</h3>
-        <p>Our dev team is hard at work creating an experience that's as visually stunning as possible.</p>
-      </div>
-    </section>
+    </div>
 
-    
-  </div>
-    
-
-    
-  <script>
-    function toggleFullScreen(video) {
-      if (!document.fullscreenElement) {
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.mozRequestFullScreen) {
-          video.mozRequestFullScreen();
-        } else if (video.webkitRequestFullscreen) {
-          video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) {
-          video.msRequestFullscreen();
-        }
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
-      }
-    }
-  </script>
+    <div class="reveal-container">
+        <div class="image" id="image1" style="clip-path: inset(0 50% 0 0);">
+            <img src="BRAH1.jpeg" alt="Image 1">
+        </div>
+        <div class="image" id="image2">
+            <img src="BRAH2.jpeg" alt="Image 2">
+        </div>
+        <div class="text-reveal" id="textReveal">
+            <p>Interior Character View!</p>
+        </div>
+    </div>
 
     <footer>
-      <p>&copy; 2023 HavocField. All rights reserved.</p>
+        <a href="#">Terms of Service</a> |
+        <a href="#">Privacy Policy</a>
+        <p>© GG EZ Games</p>
     </footer>
+
+    <script>
+        const revealContainer = document.querySelector('.reveal-container');
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const textReveal = document.getElementById('textReveal');
+
+        revealContainer.addEventListener('mousemove', (e) => {
+            const rect = revealContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const clipValue = (x / width) * 100;
+
+            // Calculate clip path values for each image independently
+            image1.style.clipPath = `inset(0 ${100 - clipValue}% 0 0)`;
+            image2.style.clipPath = `inset(0 0 0 ${clipValue}%)`;
+
+            if (clipValue > 50) {
+                textReveal.style.display = 'block';
+            } else {
+                textReveal.style.display = 'none';
+            }
+        });
+
+    </script>
 </body>
 </html>

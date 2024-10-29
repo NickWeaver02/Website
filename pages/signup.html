@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HavocField - Pre-Alpha Sign-up</title>
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Outfit:wght@200;300&family=Roboto&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+    body {
+      font-family: 'Comfortaa', sans-serif;
+      padding: 0;
+      overflow: hidden;
+      min-height:100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .video-background {
+      
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .content {
+      padding-top: 0vh;
+      background-color: rgba(0, 0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      min-width: 100%;
+      
+      
+    }
+    
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    
+    form {
+      max-width: 900px;
+      width: 100%;
+      
+      
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    
+    
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+    
+    input[type="submit"] {
+      font-family: 'Outfit', sans-serif;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: rgb(247, 0, 255);
+    }
+    
+    .message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #555;
+    }
+    
+    .success {
+      color: #4CAF50;
+    }
+    
+    .error {
+      color: #f44336;
+    }
+
+
+    .home-button {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      z-index: 2; /* Ensure the button is above the video background */
+    }
+
+    .home-button a {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #FFF;
+      font-size: 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:link { text-decoration: none; }
+
+    a:visited { text-decoration: none; }
+
+    a:hover { text-decoration: none; }
+
+    a:active { text-decoration: none; }
+
+    .home-button a:hover {
+      background-color: #E14B50;
+    }
+
+    .iframe{
+        width: 700px;
+        height: 800px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1px;
+      background-color: #333;
+      color: #FFF;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin-top: auto;
+      clear: both;
+      background: rgba(0, 0, 0, 0.8) 
+    }
+
+    @media (max-width: 768px) {
+      .iframe{
+        max-width: 700px;
+        min-height: 1000px;
+      }
+
+
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="AlphaSignup.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <header>
+    <div class="home-button">
+      <a href="https://havocfield.com/">Go back?</a>
+    </div>
+  </header>
+  
+  <div class="content">
+    <h1>Pre-Alpha Sign-up</h1>
+    
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduj97evMjJoMMf_-b0xyvP_-NXIa0TKItsnuUmx177um7yQg/viewform?embedded=true" width = 900px, height = 500px, frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  
+  <footer>
+    <p>&copy; 2023 HavocField. All rights reserved.</p>
+  </footer>
+  </div>
+  
+
+</body>
+
+  
+  
+
+    
+
+
+
+</html>

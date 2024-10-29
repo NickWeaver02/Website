@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+body {
+    font-family: 'Agdasima', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    font-size: 24px;
+}
+.image-background {
+    position: relative; /* Make this relative to position children absolutely */
+}
+
+.image-background img {
+    width: 100%; /* Ensure the image takes full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any bottom spacing */
+}
+
+.hero {
+    position: absolute; /* Position on top of the image */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    height: 400px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 2; /* Ensure it appears above the image */
+}
+
+.hero h1 {
+    font-size: 70px;
+    font-family: "Audiowide", sans-serif;
+    margin: 0;
+}
+
+footer {
+    background-color: #000;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.home-button {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 2; /* Ensure the button is above the video background */
+}
+.home-button a {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFF;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+nav {
+    position: relative;
+    padding: 0;
+    background-color: #000;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    min-width: 200px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dropdown a:hover {
+    background-color: #444;
+}
+.wishlist {
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.wishlist-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.wishlist-dropdown a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.wishlist-dropdown a:hover {
+    background-color: #444;
+}
+
+.wishlist:hover .wishlist-dropdown {
+    display: block;
+}
+
+.game-desc {
+    position: absolute; /* Position on top of the image */
+    top: 400px; /* Start below the hero section */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    z-index: 2; /* Ensure it appears above the image */
+    position: absolute; /* Position overlay absolutely */
+    background-color: rgba(0,0,0, 0.3); /* Slightly transparent background */
+    text-align: center;
+    color: #5E86BF; /* Text color */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Align text in a column */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
+    padding: 20px; /* Optional padding for better spacing */
+}
+
+.game-desc h2 {
+    font-size: 50px;
+}
+
+.game-desc p {
+    font-size: 30px;
+}

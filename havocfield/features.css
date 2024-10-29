@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+body {
+    font-family: 'Agdasima', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    font-size: 24px;
+}
+.features {
+    padding: 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    color: #4F5A87;
+    margin: 0; /* Remove any default margins */
+    height: 300px;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    text-align: center; /* Align text inside the element */
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background-color: #222;
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 150px;
+    transition: transform 0.3s;
+    position: relative; 
+    text-align: center;
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.feature-item img {
+    width: 100%; /* Ensure the image covers the full width */
+    height: 150px; /* Ensure the image covers the full height of the parent */
+    object-fit: cover; /* Maintain aspect ratio while covering the entire box */
+    display: block;
+    border-radius: 10px; /* Optional: round the image corners */
+}
+
+.text-overlay {
+    position: absolute;
+    inset: 0;
+    height: 150px;
+    width: 300px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.5); /* Slight dark overlay */
+    text-align: center;
+    color: #5E86BF; /* White text for better readability */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.feature-item:hover .text-overlay {
+    opacity: 1;
+}
+
+.main-text-overlay {
+    position: absolute;
+    bottom: -5px; /* Move it up from the absolute bottom */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    text-align: center; /* Center text */
+    color: #4F5A87; /* Text color */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease-in-out;
+}
+.feature-item:hover .main-text-overlay {
+    opacity: 0;
+}
+
+
+footer {
+    background-color: #000;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.home-button {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 2; /* Ensure the button is above the video background */
+}
+.home-button a {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFF;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+nav {
+    position: relative;
+    padding: 0;
+    background-color: #000;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    min-width: 200px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dropdown a:hover {
+    background-color: #444;
+}
+.wishlist {
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.wishlist-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.wishlist-dropdown a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.wishlist-dropdown a:hover {
+    background-color: #444;
+}
+
+.wishlist:hover .wishlist-dropdown {
+    display: block;
+}
+

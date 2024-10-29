@@ -11,341 +11,14 @@
     <meta property="og:description" content="A third-person based movement shooter. Prepare to dive into an immersive experience like no other.">
     <meta property="og:url" content="https://havocfield.com/">
     <meta property="og:type" content="website">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
-    
-        header {
-            background-color: #000;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-    
-        nav {
-            position: relative;
-            padding: 0;
-            background-color: #000;
-        }
-    
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-    
-        nav ul li {
-            margin: 0 20px;
-            position: relative;
-        }
-    
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-    
-        nav ul li:hover .dropdown {
-            display: block;
-        }
-    
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #000;
-            min-width: 200px;
-            z-index: 1;
-        }
-    
-        .dropdown a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-    
-        .dropdown a:hover {
-            background-color: #444;
-        }
-    
-        .wishlist {
-            height: 40px;
-            cursor: pointer;
-            position: relative;
-        }
-    
-        .wishlist-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: #000;
-            min-width: 150px;
-            z-index: 1;
-        }
-    
-        .wishlist-dropdown a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-    
-        .wishlist-dropdown a:hover {
-            background-color: #444;
-        }
-    
-        .wishlist:hover .wishlist-dropdown {
-            display: block;
-        }
-    
-        .centered-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            max-width: 45%;
-            height: auto;
-            pointer-events: none;
-        }
-    
-        .hero-video-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-    
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
-    
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-    
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 2;
-        }
-    
-        .hero h1 {
-            position: relative;
-            z-index: 2;
-            font-size: 50px;
-            margin: 0;
-        }
-    
-        .content {
-            position: relative;
-            padding: 0px;
-            z-index: 2;
-        }
-    
-        .notice {
-            margin: -200px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 0px;
-            box-sizing: border-box;
-            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-        }
-    
-        .notice h2 {
-            font-size: 24px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-        }
-    
-        .notice-list {
-            display: flex;
-            gap: 20px;
-            justify-content: space-around;
-        }
-    
-        .notice-item {
-            background-color: #333;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 30%;
-            position: relative;
-        }
-    
-        .notice-item:hover {
-            border-color: #fff;
-        }
-    
-        .notice-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    
-        .notice-item:hover img {
-            filter: brightness(70%);
-        }
-    
-        .notice-item .inner-container {
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease;
-            padding: 10px;
-        }
-    
-        .notice-item:hover .inner-container {
-            border-color: #fff;
-        }
-    
-        .notice-item .text-overlay {
-            position: absolute;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-    
-        .notice-item .text-overlay a {
-            color: #fff;
-            text-decoration: none;
-        }
-    
-        footer {
-            background-color: #000;
-            padding: 10px 20px;
-            text-align: center;
-        }
-    
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-    
-        .reveal-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
-            margin-top: 300px;
-        }
-    
-        .image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: clip-path 0.3s ease;
-        }
-    
-        .image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    
-        .text-reveal {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            display: none;
-            text-align: center;
-        }
-    
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-    
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-            }
-    
-            nav ul li {
-                margin: 10px 0;
-            }
-    
-            .hero h1 {
-                font-size: 30px;
-            }
-    
-            .notice-list {
-                flex-direction: column;
-                gap: 10px;
-            }
-    
-            .notice-item {
-                width: 100%;
-            }
-    
-            .reveal-container {
-                height: 300px;
-                margin-top: 150px;
-            }
-        }
-    
-        @media (max-width: 480px) {
-            header {
-                padding: 10px;
-            }
-    
-            .hero h1 {
-                font-size: 24px;
-            }
-    
-            .notice h2 {
-                font-size: 20px;
-            }
-    
-            .reveal-container {
-                height: 200px;
-                margin-top: 100px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="HFwordsproto2-01.png" alt="HavocField" style="height: 40px;">
+            <a href="https://havocfield.com" target="_blank">
+                <img src="./media/HFwordsproto2-01.png" alt="HavocField" style="height: 40px; margin-top: 3px;">
+            </a>
         </div>
         <nav>
             <ul>
@@ -360,14 +33,14 @@
                 <li>
                     <a href="#">Game Info</a>
                     <div class="dropdown">
-                        <a href="#">Overview</a>
-                        <a href="#">Features</a>
+                        <a href="https://havocfield.com/overview">Overview</a>
+                        <a href="https://havocfield.com/features">Features</a>
                     </div>
                 </li>
                 <li>
                     <a href="#">Community</a>
                     <div class="dropdown">
-                        <a href="#">Discord</a>
+                        <a href="https://discord.gg/CMVzD8GMdk">Discord</a>
                         <a href="#">Guides</a>
                         <a href="#">Support</a>
                     </div>
@@ -375,7 +48,7 @@
             </ul>
         </nav>
         <div class="wishlist">
-            <img src="steam.png" alt="Wishlist" class="wishlist">
+            <img src="./media/steam.png" alt="Wishlist" class="wishlist">
             <div class="wishlist-dropdown">
                 <a href="#">Add to Wishlist</a>
             </div>
@@ -392,7 +65,7 @@
             <h1></h1>
             <h1></h1>
         </div>
-        <img src="HFlogo-01.png" alt="Centered Image" class="centered-image">
+        <img src="./media/HFlogo-01.png" alt="Centered Image" class="centered-image">
     </div>
 
 
@@ -401,19 +74,19 @@
             <h2></h2>
             <div class="notice-list">
                 <div class="notice-item">
-                    <img src="RandomMap.PNG" alt="Notice 1">
+                    <img src="./media/RandomMap.PNG" alt="Notice 1">
                     <div class="text-overlay">
                         <a href="#">Game Update Details</a>
                     </div>
                 </div>
                 <div class="notice-item">
-                    <img src="testy.jpg" alt="Notice 2">
+                    <img src="./media/testy.jpg" alt="Notice 2">
                     <div class="text-overlay">
                         <a href="#">Upcoming Events</a>
                     </div>
                 </div>
                 <div class="notice-item">
-                    <img src="whyme.png" alt="Notice 3">
+                    <img src="./media/whyme.png" alt="Notice 3">
                     <div class="text-overlay">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSduj97evMjJoMMf_-b0xyvP_-NXIa0TKItsnuUmx177um7yQg/viewform?usp=sf_link">Pre-Alpha Signups are here!</a>
                     </div>
@@ -424,10 +97,10 @@
 
     <div class="reveal-container">
         <div class="image" id="image1" style="clip-path: inset(0 50% 0 0);">
-            <img src="BRAH1.jpeg" alt="Image 1">
+            <img src="./media/Girl1.jpeg" alt="Image 1">
         </div>
         <div class="image" id="image2">
-            <img src="BRAH2.jpeg" alt="Image 2">
+            <img src="./media/Girl2.jpeg" alt="Image 2">
         </div>
         <div class="text-reveal" id="textReveal">
             <p>Interior Character View!</p>
